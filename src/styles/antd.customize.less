@@ -1,0 +1,540 @@
+.ant-layout-footer {
+  background-color: transparent !important;
+}
+
+// 修复tbale的bug: 多选，固定列头与内容不对齐
+// 设置第一个column的className: 'custom-fixed-column'
+.custom-fixed-column {
+  left: 32px !important;
+}
+
+.ant-form {
+  .ant-modal-body {
+    padding: 10px 24px 0;
+  }
+}
+.ant-pro-global-header-logo {
+  .anticon-home {
+    display: none !important;
+  }
+}
+.ant-pro-sider-collapsed {
+  margin-right: 0 !important;
+  & > a {
+    width: 100%;
+  }
+}
+
+// Home layout
+.home-layout {
+  .ant-layout-header {
+    height: @header-height !important;
+    line-height: @header-height !important;
+  }
+
+  .ant-layout-sider {
+    padding-top: @header-height !important;
+  }
+  .ant-menu {
+    &.top-nav-menu {
+      font-size: 15px;
+    }
+  }
+  //*table 的sticky布局时，距离顶部距离
+  .ant-table-sticky-holder {
+    top: @header-height !important;
+    //* 修复 头部 排序 hover时，底部文字透出
+    .ant-table-thead th.ant-table-column-has-sorters:hover {
+      background: @hover-color;
+    }
+  }
+  //* tabel的横向滚动条 与 sticky的横向滚动条同时出现，隐藏stick滚动条
+  .ant-table-sticky-scroll {
+    display: none;
+  }
+  .modal-in-table {
+    .ant-table-sticky-holder {
+      top: -24px !important;
+    }
+  }
+  .ant-pro-global-header-layout-mix .ant-pro-global-header-logo h1 {
+    letter-spacing: 2px;
+  }
+}
+
+//*修复 proTable 查询表单,optionRender新增操作按钮时,样式显示问题
+.pro-form-query-filter-actions {
+  .ant-col.ant-form-item-control {
+    .ant-form-item-control-input-content {
+      & > .ant-space-horizontal {
+        display: inline-flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .ant-space-horizontal {
+          gap: 2px !important;
+        }
+      }
+    }
+  }
+}
+
+//* 卡片 分栏 内容 table padding样式消除
+.card-box {
+  width: 100%;
+  .ant-pro-table-search {
+    padding: 0;
+  }
+  .ant-card-body {
+    padding: 0;
+  }
+  .ant-pro-card-body {
+    padding: 0;
+  }
+}
+
+//* 顶部 用户下拉框
+.user-drop {
+  top: 65px !important;
+  border-radius: 4px;
+}
+
+//* 重写layout
+.app-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+  margin: 0 auto;
+  .ant-pro-global-header,
+  .ant-pro-top-nav-header-main {
+    margin: 0 auto;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 0;
+  }
+  .ant-pro-top-nav-header {
+    background-color: @head-bg;
+  }
+  .ant-layout.ant-layout-has-sider {
+    background-color: @bg-color;
+    & > .ant-layout {
+      background-color: @bg-color;
+      margin-left: 16px;
+      width: 1088px;
+    }
+  }
+  .ant-pro-basicLayout-content {
+    margin: 16px 0;
+    width: 1088px;
+    & > .ant-pro-page-container {
+      margin: 0;
+      width: 100%;
+      .ant-pro-page-container-children-content {
+        margin: 0;
+      }
+    }
+  }
+  //* 左侧菜单
+  .ant-layout-sider-children {
+    .ant-pro-sider-menu {
+      padding-top: 16px;
+      & > .ant-menu-item.ant-menu-item-only-child,
+      & > .ant-menu-submenu {
+        width: calc(100% - 16px);
+        margin: 0 auto 8px;
+        border-radius: 4px;
+        padding-left: 10px !important;
+        & > .ant-menu-submenu-title {
+          color: @menu-text-color;
+          padding-left: 0 !important;
+          margin-top: 0 !important;
+        }
+        &.ant-menu-item-selected,
+        &.ant-menu-submenu-selected,
+        &:hover {
+          color: @primary-color;
+          background-color: @menu-active-color;
+          &::after {
+            display: none;
+          }
+        }
+        &.ant-menu-submenu-selected {
+          .ant-menu-submenu-title {
+            color: @primary-color;
+          }
+        }
+        .ant-menu-item-selected {
+          &::after {
+            display: none;
+          }
+        }
+      }
+      //*箭头
+      .ant-menu-submenu-arrow::before,
+      .ant-menu-submenu-arrow::after {
+        background-color: #c5c7c9;
+      }
+      .ant-menu-item:active,
+      .ant-menu-submenu-title:active {
+        background: transparent;
+      }
+      //*子菜单
+      .ant-menu-sub {
+        padding: 2px 16px;
+        display: flex;
+        flex-wrap: wrap;
+        & > .ant-menu-item-only-child {
+          height: 18px;
+          line-height: 18px;
+          margin: 0 0 12px 0;
+          color: #55585c;
+          font-size: 12px;
+          padding-left: 8px !important;
+          position: relative;
+          &.ant-menu-item-selected {
+            background-color: transparent !important;
+            color: @primary-color;
+            &::before {
+              position: absolute;
+              left: 0;
+              top: 4px;
+              display: inline-block;
+              content: '';
+              height: 8px;
+              width: 3px;
+              border-radius: 1.5px;
+              background: @primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  //* 菜单滚动条
+  .ant-pro-sider-light,
+  .ant-pro-sider {
+    .ant-layout-sider-children:hover {
+      ::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.32);
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 3px;
+        background: rgba(0, 0, 0, 0);
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+    }
+    .ant-layout-sider-children {
+      ::-webkit-scrollbar-thumb {
+        border-radius: 0px;
+        background: rgba(255, 255, 255, 0);
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0);
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 0px;
+        background: rgba(255, 255, 255, 0);
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0);
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        color: rgba(0, 0, 0, 0);
+      }
+    }
+  }
+  //* 内容区域
+  .ant-pro-page-container-children-content {
+    background: #fff;
+    border-radius: 4px;
+    padding: 8px 24px 24px 24px;
+    .ant-pro-table {
+      .ant-card-body {
+        padding: 0;
+      }
+    }
+  }
+  //* table样式
+  .ant-table-thead > tr > th {
+    background: #fff;
+    &::before {
+      display: none;
+    }
+  }
+  .ant-table-tbody > tr.ant-table-row:hover > td {
+    background-color: #f3f4f6;
+  }
+  .ant-table-thead th.ant-table-column-has-sorters:hover {
+    background: @hover-color;
+  }
+  .ant-pro-table-list-toolbar-search {
+    .ant-input {
+      line-height: 14px;
+    }
+  }
+  .ant-pro-table-search {
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .ant-table {
+    .ant-table-tbody {
+      font-size: 12px;
+      .ant-badge-status-text,
+      .ant-tag {
+        font-size: 12px;
+      }
+    }
+  }
+  .ant-table-tbody > tr.ant-table-row-selected > td {
+    background-color: @tabel-selected-color;
+  }
+  //* 按钮
+  .ant-btn,
+  .ant-pagination-item,
+  .ant-input-affix-wrapper,
+  .ant-picker,
+  .ant-select-selector {
+    border-radius: 4px !important;
+  }
+
+  .ant-btn {
+    line-height: 14px;
+    padding: 6px 12px;
+    font-size: 12px;
+    height: 28px;
+    &.ant-input-search-button {
+      padding: 0;
+      .anticon {
+        font-size: 14px;
+      }
+    }
+  }
+  .ant-btn-link {
+    padding: 0 !important;
+  }
+  //*tabs
+  .ant-tabs {
+    color: @tabs-text-color;
+  }
+  //* alert
+  .ant-alert {
+    border-radius: 4px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+    font-size: 12px;
+    line-height: 16px;
+    .ant-alert-message {
+      line-height: 16px;
+      color: @menu-text-color;
+    }
+  }
+  .ant-alert-info {
+    background-color: @alert-info-bgcolor;
+    border: 1px solid @alert-info-txtcolor;
+  }
+  .ant-input-number-sm {
+    border-radius: 4px;
+  }
+  //* form
+  // table 搜索
+  .ant-pro-table-search {
+    .ant-form-item-label > label {
+      font-size: 12px;
+      color: @form-search-label-color;
+    }
+    .ant-select-selection-item {
+      font-size: 12px !important;
+    }
+    .ant-input-affix-wrapper-sm {
+      input {
+        font-size: 12px;
+      }
+    }
+    .ant-select-sm {
+      .ant-select-selection-search {
+        input::-webkit-input-placeholder {
+          font-size: 12px;
+        }
+      }
+      .ant-select-selection-placeholder {
+        font-size: 12px;
+      }
+    }
+    .ant-picker-input,
+    .ant-input-number-input-wrap {
+      input::-webkit-input-placeholder {
+        font-size: 12px;
+      }
+    }
+    .ant-pro-form-collapse-button {
+      font-size: 12px;
+      color: @tabs-text-color;
+    }
+    .ant-input-number-input-wrap {
+      font-size: 12px;
+    }
+  }
+}
+@media screen and (min-width: 1367px) {
+  .app-wrapper {
+    width: @container-width;
+    .ant-pro-global-header,
+    .ant-pro-top-nav-header-main {
+      width: @container-width;
+    }
+    .ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+      left: calc(50% - 674px);
+    }
+    .ant-layout-sider-children {
+      .ant-menu-sub {
+        & > .ant-menu-item-only-child {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .app-wrapper {
+    width: @container-min-width;
+    .ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+      left: calc(50% - 632px);
+    }
+  }
+}
+
+@media screen and (max-width: 1288px) {
+  .app-wrapper {
+    .ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+      left: 0;
+    }
+  }
+}
+
+//* 订单table 样式
+.info-table {
+  .ant-spin-container {
+    & > .ant-table-middle {
+      .ant-table-thead th,
+      tr.ant-table-row td {
+        position: relative;
+        left: -48px;
+      }
+    }
+  }
+  .ant-table-body {
+    overflow: hidden;
+  }
+  .ant-table-thead > tr > th {
+    color: @tabs-text-color;
+  }
+  .ant-table-row {
+    border-radius: 0 0 4px 4px;
+  }
+  .ant-table-cell {
+    font-size: 12px;
+    line-height: 16px;
+    background: @info-table-td;
+    border: none !important;
+    &.ant-table-row-expand-icon-cell {
+      visibility: hidden;
+    }
+  }
+  .ant-table-tbody > tr.ant-table-row:hover > td {
+    background: @info-table-td;
+  }
+  .ant-table-expanded-row-level-1 {
+    .ant-table-cell {
+      background: transparent;
+    }
+  }
+  .order-info-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .ant-typography {
+      margin-bottom: 0;
+    }
+    .label:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+}
+//* 订单展开的table样式
+.expanded-info {
+  width: 100%;
+  padding-left: 80px;
+  box-sizing: border-box;
+  color: @menu-text-color;
+  background: transparent !important;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-bottom: 1px solid #edeff2;
+  .ant-table-tbody > tr.ant-table-row:hover > td {
+    background-color: transparent;
+  }
+  .ant-table-tbody td {
+    vertical-align: top;
+    padding: 16px 8px !important;
+  }
+  .info-pro {
+    width: 100%;
+    & > .ant-space-item {
+      width: 100%;
+      & > .ant-space {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
+  .pro-img {
+    margin-right: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    img {
+      border-radius: 4px;
+      vertical-align: middle;
+    }
+  }
+  .num {
+    color: @tabs-text-color;
+  }
+  .name,
+  .price {
+    color: #19191a;
+  }
+  .order-amount {
+    border-bottom: 1px dashed #979797;
+  }
+  .type,
+  .order-amount,
+  .cus-status,
+  .detail .ant-typography {
+    color: #12141a;
+  }
+  .source {
+    color: rgb(137, 139, 143);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(220, 222, 225);
+    border-radius: 2px;
+    align-items: center;
+    box-sizing: content-box;
+    padding: 0 4px;
+  }
+}

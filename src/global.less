@@ -1,0 +1,63 @@
+/* 全局样式 */
+@import './styles/antd.customize.less';
+
+body {
+  margin: 0;
+  font-size: 14px;
+  color: @text-color;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: @bg-color;
+  box-sizing: border-box;
+  // overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+// // 滚动条样式
+// ::-webkit-scrollbar {
+//   width: 8px;
+//   height: 8px;
+// }
+// ::-webkit-scrollbar-thumb {
+//   background: hsla(0, 0%, 100%, 0.2);
+//   border-radius: 3px;
+//   box-shadow: inset 0 0 5px hsl(0deg 0% 100% / 5%);
+// }
+// ::-webkit-scrollbar-track {
+//   background: hsla(0, 0%, 100%, 0.15);
+//   border-radius: 3px;
+// }
+
+// 删除操作的样式
+.custom-a-dangerous {
+  color: @a-dangerour;
+  background: 0 0;
+  border-color: transparent;
+  box-shadow: none;
+  &:active {
+    color: @a-dangerour;
+  }
+  &:hover {
+    color: @a-dangerour;
+  }
+}
+
+.fontWB {
+  font-weight: 600;
+}
+
+//* 清除 谷歌输入框自动填充样式
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition-delay: 111111s;
+  -webkit-transition: color 11111s ease-out, background-color 111111s ease-out;
+}
